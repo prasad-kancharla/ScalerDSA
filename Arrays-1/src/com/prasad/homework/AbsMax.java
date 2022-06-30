@@ -1,4 +1,4 @@
-package com.prasad.assignment;
+package com.prasad.homework;
 
 public class AbsMax {
 
