@@ -34,21 +34,19 @@ public class EqIndex {
     public static int solve(int[] A) {
         int length = A.length;
         if (length == 1) return 0;
-        int[] totalSum = new int[length];
+        long[] prefixSum = new long[length];
         int sum = 0;
         int k = 0;
         for (int i = 0; i < length; i++) {
             sum += A[i];
-            totalSum[k++] = sum;
+            prefixSum[k++] = sum;
         }
-        for (int i = 1; i < length - 1; i++) {
-            int leftSum = totalSum[i] - A[i];
-            int rightSum = totalSum[length - 1] - totalSum[i];
+        for (int i = 0; i < length; i++) {
+            long leftSum = prefixSum[i] - A[i];
+            long rightSum = prefixSum[length - 1] - prefixSum[i];
             if (leftSum == rightSum) return i;
         }
         return -1;
     }
-
-
 
 }
