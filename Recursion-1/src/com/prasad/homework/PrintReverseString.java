@@ -8,16 +8,26 @@ public class PrintReverseString {
     StringBuilder sb = new StringBuilder();
     Scanner input = new Scanner(System.in);
     String s = input.nextLine();
-    reverse(s,sb);
-    System.out.println(sb.toString());
+    reversePrint(s);
+//    reverseUnnecessary(s,sb);
+//    System.out.println(sb.toString());
   }
 
-  public static String reverse(String s, StringBuilder sb) {
+  public static void reversePrint(String s) {
+    int length = s.length();
+    if (length == 0) {
+      return;
+    }
+    System.out.print(s.charAt(length - 1));
+    reversePrint(s.substring(0,length - 1));
+  }
+
+  public static String reverseUnnecessary(String s, StringBuilder sb) {
     if(s.length() == 0) {
       return "";
     }
     sb.append(s.charAt(s.length() - 1));
-    return reverse(s.substring(0, s.length() - 1), sb);
+    return reverseUnnecessary(s.substring(0, s.length() - 1), sb);
   }
 
 }
