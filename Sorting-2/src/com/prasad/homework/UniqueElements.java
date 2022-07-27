@@ -43,6 +43,7 @@ public class UniqueElements {
     return sum;
   }
 
+  // Approaches: https://www.codingninjas.com/codestudio/problem-details/make-unique-array_920329
   public static int solve(ArrayList<Integer> A) {
     Collections.sort(A);
     int ans = 0;
