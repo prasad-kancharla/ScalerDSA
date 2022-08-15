@@ -39,33 +39,4 @@ public class PairsWithGivenDiff {
 		}
 		return noOfPairs;
     }
-
-	public static int solveNew(int[] A, int B) {
-		int n = A.length;
-		List<Integer> list = new ArrayList<>();
-		for (int i = 0; i < n; i++) {
-			list.add(A[i]);
-		}
-		list = list.stream().distinct().sorted().collect(Collectors.toList());
-		n = list.size();
-		B = (int) Math.abs(B);
-
-		int i = 0;
-		int j = 1;
-		int noOfPairs = 0;
-
-		while (i < n && j < n) {
-			int diff = list.get(j) - list.get(i);
-			if (diff < B) {
-				j++;
-			} else if (diff > B) {
-				i++;
-			} else {
-				noOfPairs++;
-				i++;
-				j++;
-			}
-		}
-		return noOfPairs;
-	}
 }
